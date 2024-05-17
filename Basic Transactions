@@ -1,0 +1,18 @@
+<hibernate-configuration>
+<session-factory>
+<property name = ""></property> //dialect
+<property name = ""></property> //driverclass
+<property name = ""></property> //username
+<property name = ""></property> //password
+<mapping resource = "..hbm.xml"/>
+</session-factory>
+</hibernate-configuration>
+
+Committing Transactions via Hibernate : 
+public void addBook(){
+ Session s = HibernateUtil.getSessionFactory().getCurrentSession();
+ s.beginTransaction();
+ Book b = new Book("a","b");
+s.save(b);
+s.getTransaction().commit();
+}
